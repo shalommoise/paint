@@ -77,3 +77,18 @@ button {
   border: solid;
   border-color: whitesmoke;
 }
+
+#changeIt {
+  background-color: blue;
+  border: solid yellow;
+}
+#changeIt:hover {
+  background-color: yellow;
+  border: solid blue;
+}
+.warning {
+  color: red;
+}
+#changeColorsection {
+  display: none;
+}

@@ -36,7 +36,31 @@
     <button class="brown" onclick="pickBackground('brown')">Brown</button>
     </div>
         </div>
-        <div class="colorh"><button onclick="pickBackground('white',true)" >Restart</button></div>
+        <div class="options"><button onclick="restart()" >Restart</button>
+          <button onclick="invert()">invert</button>
+          <button onclick="showChangeBar()">Change a color</button>
+        <!-- <button>Make image</button></div> --></div>
+     
+      <div class="options" id="changeColorsection">
+        <div class="colorh"> <label for="original">Change Color:</label>
+          <div class="color" id="original"></div>
+          <label for="changed">To:</label>
+          <div class="color" id="changed"></div>
+              <label for="changeIt"> click to change:</label>
+              <div class="color" id="changeIt" onclick="activateChange()"></div>
+            </div>
+        <p class="warning" id="changeWarning"></p>
+          <div class="colorbuttons">
+            <button class="black" onclick="changeColor('black')">Black</button>
+            <button class="white" onclick="changeColor('white')">white</button>
+            <button class="blue" onclick="changeColor('blue')">Blue</button>
+            <button class="red" onclick="changeColor('red')">Red</button>
+            <button class="yellow" onclick="changeColor('yellow')">Yellow</button>
+            <button class="green" onclick="changeColor('green')">Green</button>
+            <button class="purple" onclick="changeColor('purple')">Purple</button>
+            <button class="brown" onclick="changeColor('brown')">Brown</button>
+          </div>
+        </div>
 </header>
   <main ><div class="canvas">
    
