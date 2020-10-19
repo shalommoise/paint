@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
+  <title>Paint</title>
+</head>
+<body onload="create()">
+  <header class="menu">
+    <div class="options">
+<div class="colorh">   <label for="color">Pen Color:</label> <div class="color" id="color"></div></div>  
+
+    <button class="black" onclick="pickColor('black')">Black</button>
+    <button class="white" onclick="pickColor('white')">white</button>
+    <button class="blue" onclick="pickColor('blue')">Blue</button>
+    <button class="red" onclick="pickColor('red')">Red</button>
+</div>
+<div class="options">
+<div class="colorh"> <label for="backgroundcolor">Background Color:</label>
+  <div class="color"  id="backgroundcolor" ></div></div> 
+     <button class="black" onclick="pickBackground('black')">Black</button>
+     <button class="white" onclick="pickBackground('white')">white</button>
+    <button class="blue" onclick="pickBackground('blue')">Blue</button>
+    <button class="red" onclick="pickBackground('red')">Red</button>
+        </div>
+</header>
+  <main ><div class="canvas">
+   
+  </div></main>
+</body>
+</html>

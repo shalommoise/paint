@@ -1,0 +1,54 @@
+.menu {
+  background-color: gray;
+  /* height: 40%; */
+  padding: 2%;
+}
+.canvas {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.color {
+  background: white;
+
+  width: 30px;
+  margin-left: 2px;
+  border-radius: 2px;
+}
+.black {
+  background-color: black;
+  color: black;
+}
+
+.white {
+  background-color: white;
+  color: white;
+}
+.blue {
+  background-color: blue;
+  color: blue;
+}
+.red {
+  background-color: red;
+  color: red;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0%;
+}
+.dot:hover {
+  cursor: crosshair;
+  background-color: gray;
+}
+.colorh {
+  display: flex;
+  margin: 5px;
+}
+.options {
+  margin: 5px;
+  padding: 2px;
+  border: solid;
+  border-color: whitesmoke;
+}
