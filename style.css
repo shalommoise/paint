@@ -2,12 +2,15 @@
   background-color: gray;
 
   padding: 2%;
+  margin-bottom: 5px;
+  border: solid gray;
 }
 .canvas {
   background-color: white;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 600px;
+  height: 600px;
   border: solid;
 }
 .color {
@@ -61,6 +64,7 @@ button {
 .dot {
   height: 10px;
   width: 10px;
+  padding: 0px;
   margin: 0%;
 }
 .dot:hover {
@@ -90,5 +94,8 @@ button {
   color: red;
 }
 #changeColorsection {
+  display: none;
+}
+#sizeBar {
   display: none;
 }

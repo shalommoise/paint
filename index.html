@@ -38,9 +38,14 @@
         </div>
         <div class="options"><button onclick="restart()" >Restart</button>
           <button onclick="invert()">invert</button>
-          <button onclick="showChangeBar()">Change a color</button>
+          <button onclick="showBar('changeColorsection')">Change a color</button>
+          <button onclick="showBar('sizeBar')">Change Size</button>
         <!-- <button>Make image</button></div> --></div>
-     
+     <div class="options" id="sizeBar">
+<button onclick="changeSize('300px','5px', 900)">Small</button>
+<button onclick="changeSize('600px','10px', 3601)">Medium</button>
+<button onclick="changeSize('900px','15px', 8100)">Large</button>
+     </div>
       <div class="options" id="changeColorsection">
         <div class="colorh"> <label for="original">Change Color:</label>
           <div class="color" id="original"></div>

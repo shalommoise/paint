@@ -5,7 +5,19 @@ const pickColor=(color)=>{
 
  
 }
- let count = 5401;
+ let count = 3601;
+const changeSize =(size, dotSize,dotSpace) =>{
+  const canvas = document.getElementsByClassName("canvas")[0];
+    const dot = document.getElementsByClassName("dot");
+    for (let i = 0; i < dot.length;i++) {
+      
+   dot[i].style.height =dotSize;
+  dot[i].style.width =dotSize;
+    }
+  canvas.style.height =size;
+  canvas.style.width =size;
+  count = dotSpace;
+}
 const pickBackground =(color)=>{
   
   document.getElementsByClassName("color")[1].style.background = color;
@@ -18,7 +30,7 @@ canvas.style.background = color;
 const drawings = {}
 
 const changeDot = (id)=>{
- 
+
 const color =  document.getElementsByClassName("color")[0].style.background;
   document.getElementById(id).style.background = color ? color: "white";
 drawings[id] = document.getElementById(id).style.background;
@@ -73,8 +85,8 @@ const changeColor = (color, num)=>{
 changeCount % 2 === 0 ? original.style.background = color: changed.style.background = color;
 changeCount++;
 }
-const showChangeBar =()=>{
-  const section = document.getElementById("changeColorsection");
+const showBar =(id)=>{
+  const section = document.getElementById(id);
   section.style.display === "block" ?  section.style.display = "none" :  section.style.display = "block" 
 
 }
