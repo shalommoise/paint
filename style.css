@@ -1,6 +1,6 @@
 .menu {
   background-color: gray;
-  /* height: 40%; */
+
   padding: 2%;
 }
 .canvas {
@@ -8,6 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  border: solid;
 }
 .color {
   background: white;
@@ -15,6 +16,14 @@
   width: 30px;
   margin-left: 2px;
   border-radius: 2px;
+}
+.colorbuttons {
+  display: flex;
+
+  flex: 2 1 auto;
+}
+button {
+  margin: 10px;
 }
 .black {
   background-color: black;
@@ -32,6 +41,22 @@
 .red {
   background-color: red;
   color: red;
+}
+.yellow {
+  background-color: yellow;
+  color: yellow;
+}
+.green {
+  background-color: green;
+  color: green;
+}
+.brown {
+  background-color: brown;
+  color: brown;
+}
+.purple {
+  background-color: purple;
+  color: purple;
 }
 .dot {
   height: 10px;

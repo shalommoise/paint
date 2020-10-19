@@ -5,11 +5,11 @@ const pickColor=(color)=>{
 
  
 }
- let count = 5000;
+ let count = 5401;
 const pickBackground =(color)=>{
   document.getElementsByClassName("color")[1].style.background = color;
   const dot = document.getElementsByClassName("dot");
-for (let i = 0; i <= 5000; i++){
+for (let i = 0; i <= 5401; i++){
   dot[i].style.background = color 
 }
 
