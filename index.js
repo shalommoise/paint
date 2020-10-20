@@ -1,12 +1,22 @@
+let state ={
+  size: 3601
+}
+
 const pickColor=(color)=>{
 
   document.getElementsByClassName("color")[0].style.background = color;
   document.getElementsByClassName("color")[0].innerText ="";
-
+ document.getElementsByClassName("color")[0].style.display = 'block';
  
+}
+const rubber=()=>{
+    document.getElementsByClassName("color")[0].style.background = 'none';
+     document.getElementsByClassName("color")[0].style.display = 'none';
+  document.getElementsByClassName("color")[0].innerText ="";
 }
  let count = 3601;
 const changeSize =(size, dotSize,dotSpace) =>{
+  document.body.style.width = size;
   const canvas = document.getElementsByClassName("canvas")[0];
     const dot = document.getElementsByClassName("dot");
     for (let i = 0; i < dot.length;i++) {
@@ -17,6 +27,7 @@ const changeSize =(size, dotSize,dotSpace) =>{
   canvas.style.height =size;
   canvas.style.width =size;
   count = dotSpace;
+  state.size = dotSpace;
 }
 const pickBackground =(color)=>{
   
@@ -32,6 +43,7 @@ const drawings = {}
 const changeDot = (id)=>{
 
 const color =  document.getElementsByClassName("color")[0].style.background;
+
   document.getElementById(id).style.background = color ? color: "white";
 drawings[id] = document.getElementById(id).style.background;
 }
@@ -98,7 +110,7 @@ for (let i =0; i < arr.length;i++){
 
 }
 let changeCount = 0;
-const changeColor = (color, num)=>{
+const changeColor = (color)=>{
   let original = document.getElementById("original");
   let changed = document.getElementById("changed");
 
@@ -131,14 +143,6 @@ const activateChange =()=>{
 } 
 
 
-const generateImg =()=>{
-  
-
-  const image =  document.getElementsByClassName("canvas")[0];
-
-return image;
-}
-
 const changePenSize =(size)=>{
    const dots = document.getElementsByClassName("dot");
  for (let i = 0; i < dots.length; i++){
@@ -148,3 +152,32 @@ const changePenSize =(size)=>{
  }
 
 }
+
+
+
+const generateImg =()=>{
+ let pic = {}; 
+for (let i = 0; i < state.size; i++){
+pic[`a${i}`] = 'none';
+}
+for (const item in pic){
+  if(drawings[item])  pic[item] = drawings[item];
+
+}
+ const background =  document.getElementsByClassName("canvas")[0].style.background;
+
+ document.getElementById("hidden").background = background;
+  document.getElementById("hidden").innerText = state.size;
+ const canvas = document.getElementById("moreHidden");
+ 
+for (const item in pic){
+  let node = document.createElement("div");
+node.className ="dot";
+node.id=item;
+node.style.background= pic[item];
+canvas.append(node)
+}
+}
+
+ 
+

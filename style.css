@@ -1,9 +1,13 @@
+body {
+  width: 600px;
+  max-width: 900px;
+}
 .menu {
   background-color: gray;
 
   padding: 2%;
   margin-bottom: 5px;
-  border: solid gray;
+  border: solid;
 }
 .canvas {
   background-color: white;
@@ -21,9 +25,8 @@
   border-radius: 2px;
 }
 .colorbuttons {
-  display: flex;
-
-  flex: 2 1 auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 button {
   margin: 10px;
@@ -100,5 +103,8 @@ button {
   display: none;
 }
 #penBar {
+  display: none;
+}
+#hidden {
   display: none;
 }

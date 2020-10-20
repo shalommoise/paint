@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="index.js"></script>
-
+<script src="picture.js"></script>
   <title>Paint</title>
 </head>
 <body onload="create()">
@@ -37,16 +37,21 @@
     <button class="brown" onclick="pickBackground('brown')">Brown</button>
     </div>
         </div>
-        <div class="options"><button onclick="restart()" >Restart</button>
+        <div class="options">
+          <button onclick="rubber()">Rubber</button>
+          <button onclick="restart()" >Restart</button>
           <button onclick="invert()">invert</button>
           <button onclick="showBar('changeColorsection')">Change a color</button>
           <button onclick="showBar('sizeBar')">Change Size</button>
           <button onclick="showBar('penBar')">Change pens size</button>
-        <button onclick="generateImg()"  >Make image</button></div></div>
+        <button onclick="generateImg()"  >Make image</button>
+      <button onclick="doIt()" >Sure?</button></div></div>
      <div class="options" id="sizeBar">
+       <label for="sizebuttons">Canvas Size </label>
+       <div id="sizebuttons">
 <button onclick="changeSize('300px','5px', 900)">Small</button>
 <button onclick="changeSize('600px','10px', 3601)">Medium</button>
-<button onclick="changeSize('900px','15px', 8100)">Large</button>
+<button onclick="changeSize('900px','15px', 8100)">Large</button></div>
      </div>
       <div class="options" id="changeColorsection">
         <div class="colorh"> <label for="original">Change Color:</label>
@@ -69,13 +74,17 @@
           </div>
         </div>
         <div class="options" id= "penBar">
+        <label for="penSize">Pen Size</label>
+          <div id="penSize">
         <button onclick="changePenSize('small')">Small</button>
         <button onclick="changePenSize('medium')">Medium</button>
         <button onclick="changePenSize('large')">Large</button>
-        </div>
+        </div></div>
 </header>
   <main ><div class="canvas">
    
   </div></main>
+  <div id="hidden"></div>
+    <div id="moreHidden"></div>
 </body>
 </html>
