@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="index.js"></script>
+
   <title>Paint</title>
 </head>
 <body onload="create()">
@@ -40,7 +41,8 @@
           <button onclick="invert()">invert</button>
           <button onclick="showBar('changeColorsection')">Change a color</button>
           <button onclick="showBar('sizeBar')">Change Size</button>
-        <!-- <button>Make image</button></div> --></div>
+          <button onclick="showBar('penBar')">Change pens size</button>
+        <button onclick="generateImg()"  >Make image</button></div></div>
      <div class="options" id="sizeBar">
 <button onclick="changeSize('300px','5px', 900)">Small</button>
 <button onclick="changeSize('600px','10px', 3601)">Medium</button>
@@ -65,6 +67,11 @@
             <button class="purple" onclick="changeColor('purple')">Purple</button>
             <button class="brown" onclick="changeColor('brown')">Brown</button>
           </div>
+        </div>
+        <div class="options" id= "penBar">
+        <button onclick="changePenSize('small')">Small</button>
+        <button onclick="changePenSize('medium')">Medium</button>
+        <button onclick="changePenSize('large')">Large</button>
         </div>
 </header>
   <main ><div class="canvas">

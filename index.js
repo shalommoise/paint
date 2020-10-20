@@ -36,7 +36,27 @@ const color =  document.getElementsByClassName("color")[0].style.background;
 drawings[id] = document.getElementById(id).style.background;
 }
 
+const changeBigDot =(id)=>{
+  
+const number = Number(id.replace("a", ""))
+const arr = [number, number +1, number -1]
+  const color =  document.getElementsByClassName("color")[0].style.background;
+  for (let i =0; i < arr.length; i++) {
+  document.getElementById(`a${arr[i]}`).style.background = color ? color: "white";
+   drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
+  }
 
+}
+
+const changeLargeDot=(id)=>{
+  const number = Number(id.replace("a", ""))
+const arr = [number, number +1, number -1, number+2, number -2 ] 
+  const color =  document.getElementsByClassName("color")[0].style.background;
+  for (let i =0; i < arr.length; i++) {
+  document.getElementById(`a${arr[i]}`).style.background = color ? color: "white";
+   drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
+  }
+}
 const create = ()=>{
 
   const canvas = document.getElementsByClassName("canvas")[0];
@@ -109,3 +129,22 @@ const activateChange =()=>{
     document.getElementById("changed").style.background = "none";
   }
 } 
+
+
+const generateImg =()=>{
+  
+
+  const image =  document.getElementsByClassName("canvas")[0];
+
+return image;
+}
+
+const changePenSize =(size)=>{
+   const dots = document.getElementsByClassName("dot");
+ for (let i = 0; i < dots.length; i++){
+   if( size === "small") dots[i].setAttribute("onmouseover", "changeDot(id)");
+  if( size === "medium") dots[i].setAttribute("onmouseover", "changeBigDot(id)");
+  if( size === "large") dots[i].setAttribute("onmouseover", "changeLargeDot(id)");
+ }
+
+}
