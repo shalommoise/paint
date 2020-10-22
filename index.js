@@ -1,5 +1,8 @@
 let state ={
-  size: 3601
+  size: 3601,
+  copy: {},
+  background: '',
+  copyBackground: 'none'
 }
 
 const pickColor=(color)=>{
@@ -36,7 +39,7 @@ const pickBackground =(color)=>{
 const canvas = document.getElementsByClassName("canvas")[0];
 
 canvas.style.background = color;
-
+state.background = color;
 }
 const drawings = {}
 
@@ -81,28 +84,36 @@ node.id=`a${count}`;
 
 node.setAttribute("onmouseover", `changeDot('${node.id}')`);
 canvas.append(node);
+
 create(count);
 }
 
 }
 
 const invert =()=>{
-  
+  state.copy ={...drawings};
+ 
   const backgroundColor =document.getElementById("backgroundcolor").style.background;
+   state.copyBackground = backgroundColor;
   const penColor = document.getElementById("color").style.background;
 
  for (const item in drawings){
 
   document.getElementById(item).style.background = backgroundColor; 
 }
+
+
 document.getElementsByClassName("canvas")[0].style.background = penColor;
 document.getElementById("backgroundcolor").style.background = penColor;
 document.getElementById("color").style.background = backgroundColor;
+document.getElementById("undo").style.display = 'inline';
+state.background = penColor;
 }
 
 
 const restart = ()=>{
-  document.getElementsByClassName("canvas")[0].style.background = "white";
+  document.getElementsByClassName("canvas")[0].style.background = "none";
+  state.background = "none";
  const arr =  document.getElementsByClassName("dot")
 for (let i =0; i < arr.length;i++){
   arr[i].style.background = "none";
@@ -155,29 +166,37 @@ const changePenSize =(size)=>{
 
 
 
-const generateImg =()=>{
- let pic = {}; 
-for (let i = 0; i < state.size; i++){
-pic[`a${i}`] = 'none';
-}
-for (const item in pic){
-  if(drawings[item])  pic[item] = drawings[item];
+// const generateImg =()=>{
+//  let pic = {}; 
+// for (let i = 0; i < state.size; i++){
+// pic[`a${i}`] = 'none';
+// }
+// for (const item in pic){
+//   if(drawings[item])  pic[item] = drawings[item];
 
-}
- const background =  document.getElementsByClassName("canvas")[0].style.background;
+// }
+//  const background =  document.getElementsByClassName("canvas")[0].style.background;
 
- document.getElementById("hidden").background = background;
-  document.getElementById("hidden").innerText = state.size;
- const canvas = document.getElementById("moreHidden");
+//  document.getElementById("hidden").background = background;
+//   document.getElementById("hidden").innerText = state.size;
+//  const canvas = document.getElementById("moreHidden");
  
-for (const item in pic){
-  let node = document.createElement("div");
-node.className ="dot";
-node.id=item;
-node.style.background= pic[item];
-canvas.append(node)
-}
-}
+// for (const item in pic){
+//   let node = document.createElement("div");
+// node.className ="dot";
+// node.id=item;
+// node.style.background= pic[item];
+// canvas.append(node)
+// }
+// }
 
- 
 
+const undo =()=>{
+
+for (const item in state.copy){
+  document.getElementById(item).style.background = state.copy[item];
+
+}
+document.getElementsByClassName("canvas")[0].style.background = state.copyBackground;
+  document.getElementById("undo").style.display = 'none';
+}

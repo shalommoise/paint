@@ -108,3 +108,6 @@ button {
 #hidden {
   display: none;
 }
+#undo {
+  display: none;
+}
