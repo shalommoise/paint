@@ -164,33 +164,6 @@ const changePenSize =(size)=>{
 
 }
 
-
-
-// const generateImg =()=>{
-//  let pic = {}; 
-// for (let i = 0; i < state.size; i++){
-// pic[`a${i}`] = 'none';
-// }
-// for (const item in pic){
-//   if(drawings[item])  pic[item] = drawings[item];
-
-// }
-//  const background =  document.getElementsByClassName("canvas")[0].style.background;
-
-//  document.getElementById("hidden").background = background;
-//   document.getElementById("hidden").innerText = state.size;
-//  const canvas = document.getElementById("moreHidden");
- 
-// for (const item in pic){
-//   let node = document.createElement("div");
-// node.className ="dot";
-// node.id=item;
-// node.style.background= pic[item];
-// canvas.append(node)
-// }
-// }
-
-
 const undo =()=>{
 
 for (const item in state.copy){
