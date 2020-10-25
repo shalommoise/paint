@@ -1,6 +1,13 @@
 body {
   width: 600px;
   max-width: 900px;
+  display: flex;
+  flex-direction: row;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
 }
 .menu {
   background-color: gray;

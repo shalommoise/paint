@@ -87,8 +87,9 @@ canvas.append(node);
 
 create(count);
 }
-
 }
+
+
 
 const invert =()=>{
   state.copy ={...drawings};
