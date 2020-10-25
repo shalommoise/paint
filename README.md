@@ -19,5 +19,6 @@ User is able to:
 
 [Shalom Moise](https://github.com/shalommoise/)
 
-<!-- ### Link
-[Paint Clone]() -->
+### Link
+
+[Paint Clone](https://www.shalommoise.com/paint.html)
