@@ -174,3 +174,31 @@ for (const item in state.copy){
 document.getElementsByClassName("canvas")[0].style.background = state.copyBackground;
   document.getElementById("undo").style.display = 'none';
 }
+
+const randomise =()=>{
+
+
+ const dot =  document.getElementsByClassName("dot")
+for (let i =0; i < dot.length;i++){
+  let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ]
+  dot[i].style.background = `rgb(${arr[0]},${arr[1]},${arr[2]})`
+}
+}
+const randomColor =(x)=>{
+  let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
+    const color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+if(x === "pen"){
+   
+  document.getElementsByClassName("color")[0].style.background = color
+  document.getElementsByClassName("color")[0].innerText ="";
+ document.getElementsByClassName("color")[0].style.display = 'block';
+} else{
+
+ document.getElementsByClassName("color")[1].style.background = color;
+  const canvas = document.getElementsByClassName("canvas")[0];
+
+canvas.style.background = color;
+state.background = color;
+}
+
+}
