@@ -123,6 +123,10 @@ for (let i =0; i < arr.length;i++){
 }
 let changeCount = 0;
 const changeColor = (color)=>{
+  if (color === "random"){
+      let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
+     color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+  }
   let original = document.getElementById("original");
   let changed = document.getElementById("changed");
 
