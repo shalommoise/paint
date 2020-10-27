@@ -2,11 +2,12 @@ let state ={
   size: 3601,
   copy: {},
   background: '',
-  copyBackground: 'none'
+  copyBackground: 'none',
+  rand: false
 }
 
 const pickColor=(color)=>{
-
+state.rand = false;
   document.getElementsByClassName("color")[0].style.background = color;
   document.getElementsByClassName("color")[0].innerText ="";
  document.getElementsByClassName("color")[0].style.display = 'block';
@@ -42,11 +43,16 @@ canvas.style.background = color;
 state.background = color;
 }
 const drawings = {}
-
+turnRand =(boolean)=>{
+state.rand = boolean;
+}
 const changeDot = (id)=>{
 
-const color =  document.getElementsByClassName("color")[0].style.background;
-
+let color =  document.getElementsByClassName("color")[0].style.background;
+if(state.rand){ 
+    let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
+     color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+}
   document.getElementById(id).style.background = color ? color: "white";
 drawings[id] = document.getElementById(id).style.background;
 }
@@ -55,7 +61,11 @@ const changeBigDot =(id)=>{
   
 const number = Number(id.replace("a", ""))
 const arr = [number, number +1, number -1]
-  const color =  document.getElementsByClassName("color")[0].style.background;
+  let color =  document.getElementsByClassName("color")[0].style.background;
+  if(state.rand){ 
+    let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
+     color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+}
   for (let i =0; i < arr.length; i++) {
   document.getElementById(`a${arr[i]}`).style.background = color ? color: "white";
    drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
@@ -66,7 +76,11 @@ const arr = [number, number +1, number -1]
 const changeLargeDot=(id)=>{
   const number = Number(id.replace("a", ""))
 const arr = [number, number +1, number -1, number+2, number -2 ] 
-  const color =  document.getElementsByClassName("color")[0].style.background;
+  let color =  document.getElementsByClassName("color")[0].style.background;
+  if(state.rand){ 
+    let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
+     color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+}
   for (let i =0; i < arr.length; i++) {
   document.getElementById(`a${arr[i]}`).style.background = color ? color: "white";
    drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
