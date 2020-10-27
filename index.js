@@ -14,6 +14,7 @@ state.rand = false;
  
 }
 const rubber=()=>{
+  state.rand = false;
     document.getElementsByClassName("color")[0].style.background = 'none';
      document.getElementsByClassName("color")[0].style.display = 'none';
   document.getElementsByClassName("color")[0].innerText ="";
