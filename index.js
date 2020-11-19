@@ -1,25 +1,22 @@
 let state ={
+  activated: false,
   size: 3601,
   copy: {},
   background: '',
   copyBackground: 'none',
   rand: false
 }
-
+ let count = 3601;
 const pickColor=(color)=>{
 state.rand = false;
+ state.activated = true;
   document.getElementsByClassName("color")[0].style.background = color;
   document.getElementsByClassName("color")[0].innerText ="";
  document.getElementsByClassName("color")[0].style.display = 'block';
  
 }
-const rubber=()=>{
-  state.rand = false;
-    document.getElementsByClassName("color")[0].style.background = 'none';
-     document.getElementsByClassName("color")[0].style.display = 'none';
-  document.getElementsByClassName("color")[0].innerText ="";
-}
- let count = 3601;
+
+
 const changeSize =(size, dotSize,dotSpace) =>{
   document.body.style.width = size;
   const canvas = document.getElementsByClassName("canvas")[0];
@@ -34,6 +31,9 @@ const changeSize =(size, dotSize,dotSpace) =>{
   count = dotSpace;
   state.size = dotSpace;
 }
+
+
+
 const pickBackground =(color)=>{
   
   document.getElementsByClassName("color")[1].style.background = color;
@@ -50,12 +50,14 @@ state.rand = boolean;
 const changeDot = (id)=>{
 
 let color =  document.getElementsByClassName("color")[0].style.background;
+if(state.activated) {
 if(state.rand){ 
     let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
      color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
 }
-  document.getElementById(id).style.background = color ? color: "white";
+  document.getElementById(id).style.background = color ? color: "none";
 drawings[id] = document.getElementById(id).style.background;
+}
 }
 
 const changeBigDot =(id)=>{
@@ -63,30 +65,44 @@ const changeBigDot =(id)=>{
 const number = Number(id.replace("a", ""))
 const arr = [number, number +1, number -1]
   let color =  document.getElementsByClassName("color")[0].style.background;
+  if(state.activated) {
   if(state.rand){ 
     let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
      color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
 }
   for (let i =0; i < arr.length; i++) {
-  document.getElementById(`a${arr[i]}`).style.background = color ? color: "white";
+  document.getElementById(`a${arr[i]}`).style.background = color ? color: "none";
    drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
   }
-
+  }
 }
 
 const changeLargeDot=(id)=>{
   const number = Number(id.replace("a", ""))
 const arr = [number, number +1, number -1, number+2, number -2 ] 
   let color =  document.getElementsByClassName("color")[0].style.background;
+  if(state.activated) {
   if(state.rand){ 
     let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
      color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
 }
   for (let i =0; i < arr.length; i++) {
-  document.getElementById(`a${arr[i]}`).style.background = color ? color: "white";
+  document.getElementById(`a${arr[i]}`).style.background = color ? color: "none";
    drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
   }
 }
+}
+
+const rubber=()=>{
+  state.rand = false;
+state.activated = true;
+
+    document.getElementsByClassName("color")[0].style.background = 'none';
+     document.getElementsByClassName("color")[0].style.display = 'none';
+  document.getElementsByClassName("color")[0].innerText ="";
+}
+
+
 const create = ()=>{
 
   const canvas = document.getElementsByClassName("canvas")[0];
@@ -104,7 +120,11 @@ create(count);
 }
 }
 
-
+const acitvate =()=>{
+ state.activated = !state.activated;
+ const inst = document.getElementById("inst");
+ inst.style.display = state.activated ? "none" : "block" ;
+}
 
 const invert =()=>{
   state.copy ={...drawings};
@@ -128,6 +148,7 @@ state.background = penColor;
 
 
 const restart = ()=>{
+  state.activated = false;
   document.getElementsByClassName("canvas")[0].style.background = "none";
   state.background = "none";
  const arr =  document.getElementsByClassName("dot")
@@ -138,6 +159,7 @@ for (let i =0; i < arr.length;i++){
 }
 let changeCount = 0;
 const changeColor = (color)=>{
+  state.activated = true;
   if (color === "random"){
       let arr =  [Math.round(Math.random()*255), Math.round(Math.random()*255),Math.round(Math.random()*255) ];
      color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
@@ -175,6 +197,7 @@ const activateChange =()=>{
 
 
 const changePenSize =(size)=>{
+  state.activated = true;
    const dots = document.getElementsByClassName("dot");
  for (let i = 0; i < dots.length; i++){
    if( size === "small") dots[i].setAttribute("onmouseover", "changeDot(id)");
@@ -221,3 +244,4 @@ state.background = color;
 }
 
 }
+
