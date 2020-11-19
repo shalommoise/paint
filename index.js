@@ -123,7 +123,8 @@ create(count);
 const acitvate =()=>{
  state.activated = !state.activated;
  const inst = document.getElementById("inst");
- inst.style.display = state.activated ? "none" : "block" ;
+ inst.style.display = state.activated && "none";
+
 }
 
 const invert =()=>{
@@ -148,6 +149,7 @@ state.background = penColor;
 
 
 const restart = ()=>{
+   document.getElementById("inst").style.display = "block"; 
   state.activated = false;
   document.getElementsByClassName("canvas")[0].style.background = "none";
   state.background = "none";
