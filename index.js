@@ -6,7 +6,7 @@ let state ={
   copyBackground: 'none',
   rand: false
 }
- let count = 3601;
+ 
 const pickColor=(color)=>{
 state.rand = false;
  state.activated = true;
@@ -105,18 +105,19 @@ state.activated = true;
 
 const create = ()=>{
 
-  const canvas = document.getElementsByClassName("canvas")[0];
-  const node = document.createElement("div");
+let count = 3600;
 
-  count--
-if(count >0) {
+  
+while(count >0) {
+    const canvas = document.getElementsByClassName("canvas")[0];
+  const node = document.createElement("div");
   node.className ="dot";
 node.id=`a${count}`;
 
 node.setAttribute("onmouseover", `changeDot('${node.id}')`);
 canvas.append(node);
+count--
 
-create(count);
 }
 }
 
