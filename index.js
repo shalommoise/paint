@@ -1,10 +1,11 @@
 let state = {
   activated: false,
-  size: 3601,
+  size: 3600,
   copy: {},
   background: '',
   copyBackground: 'none',
-  rand: false
+  rand: false,
+  paintName: 'paint'
 }
 
 const pickColor = (color) => {
@@ -71,8 +72,12 @@ const changeBigDot = (id) => {
       color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
     }
     for (let i = 0; i < arr.length; i++) {
-      document.getElementById(`a${arr[i]}`).style.background = color ? color : "none";
-      drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
+      const id =  document.getElementById(`a${arr[i]}`);
+      if(id){
+          id.style.background = color ? color : "none";
+      drawings[`a${arr[i]}`] = id.style.background;
+      }
+      
     }
   }
 }
@@ -87,9 +92,12 @@ const changeLargeDot = (id) => {
       color = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
     }
     for (let i = 0; i < arr.length; i++) {
-      document.getElementById(`a${arr[i]}`).style.background = color ? color : "none";
-      drawings[`a${arr[i]}`] = document.getElementById(`a${arr[i]}`).style.background;
+      const id =  document.getElementById(`a${arr[i]}`);
+      if(id) {
+      id.style.background = color ? color : "none";
+      drawings[`a${arr[i]}`] = id.style.background;
     }
+   }
   }
 }
 
@@ -105,10 +113,8 @@ const rubber = () => {
 
 const create = () => {
 
-  let count = 3600;
-
-
-  while (count > 0) {
+  let count = 1;
+  while (count <= state.size) {
     const canvas = document.getElementsByClassName("canvas")[0];
     const node = document.createElement("div");
     node.className = "dot";
@@ -116,12 +122,11 @@ const create = () => {
 
     node.setAttribute("onmouseover", `changeDot('${node.id}')`);
     canvas.append(node);
-    count--
-
+    count++;
   }
 }
 
-const acitvate = () => {
+const activate = () => {
   state.activated = !state.activated;
   const inst = document.getElementById("inst");
   inst.style.display = state.activated && "none";
@@ -227,6 +232,7 @@ const randomise = () => {
   for (let i = 0; i < dot.length; i++) {
     let arr = [Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255)]
     dot[i].style.background = `rgb(${arr[0]},${arr[1]},${arr[2]})`
+ drawings[`a${i+1}`] =   document.getElementById(`a${i+1}`).style.background
   }
 }
 const randomColor = (x) => {
@@ -247,4 +253,8 @@ const randomColor = (x) => {
   }
 
 }
+
+
+  
+
 

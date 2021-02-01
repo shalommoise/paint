@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="index.js"></script>
+<script src="picture.js"></script>
 
   <title>Paint</title>
 </head>
@@ -87,10 +88,16 @@
         <button onclick="changePenSize('medium')">Medium</button>
         <button onclick="changePenSize('large')">Large</button>
         </div></div>
+   <div class="options">
+      <input type="text" id="paintingName" name="paintingName" value="Name your awesome painting here" onchange="namePaint()">
+    
+        <button onclick="save()">Download</button>
+      </div>
+   
 </header>
-  <main ><div class="canvas" onclick="acitvate()">
+  <main ><div class="canvas" onclick="activate()">
    
   </div></main>
-      <p id="inst">click on canvas to acitvate or deactivate pen</p>
+      <p id="inst">click on canvas to activate or deactivate pen</p>
 </body>
 </html>
