@@ -2,18 +2,16 @@ const save =()=>{
  const menu =  document.getElementsByClassName("menu")[0];
   const inst = document.getElementById("inst");
   menu.remove();
-  inst.remove();
+  inst.outerHTML = '<p id="inst" style="display: block;" >Nice Picture! <button onclick="reload()"> Want to make another one? </button></p>' 
+  
+ inst.style.margin = '10px';
+   inst.style.display = "block";
      state.activated  = false;
-
-
-
 for (let i = 1; i < state.size;i++){
   const num = document.getElementById(`a${i}`);
   if(num) num.removeAttribute("onmouseover");
   const dot = document.getElementsByClassName("dot")[i-1];
 }
-
-
 const canvas = document.getElementsByClassName("canvas")[0];
 canvas.removeAttribute("onclick");
 
@@ -51,8 +49,8 @@ for (item in drawings) {
 for (item in lookUp) {
   webPage = webPage + `<div class="dot" id=${item} style="${lookUp[item]}"></div>`
 }
-
-   const element = document.createElement('a');
+   
+  const element = document.createElement('a');
 
   element.setAttribute('href', 'data:text/html;charset=utf-8,'+  webPage + end);
   
@@ -61,6 +59,7 @@ for (item in lookUp) {
   document.body.appendChild(element);
 
   element.click();
+ 
   }
    
  
@@ -69,3 +68,5 @@ for (item in lookUp) {
 
      state.paintName  = valueName ? valueName.value : state.paintName  ;
  }
+
+ const reload =()=>{location.reload();}
