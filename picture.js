@@ -37,7 +37,7 @@ let webPage = `<html lang="en"><head>  <meta charset="UTF-8"/><meta name="viewpo
   margin: 0%;
   background-color: none;
 }
-  </style><title>Document</title></head><body><main class="canvas" style="background: ${state.background}">`; 
+  </style><title>${state.paintName}</title></head><body><main class="canvas" style="background: ${state.background}">`; 
 const end = '</main></body></html>';
 const lookUp = {};
  for (let i = 1; i <= state.size; i++){
